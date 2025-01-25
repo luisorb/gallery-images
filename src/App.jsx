@@ -1,11 +1,16 @@
 import './App.css'
-import Gallery from './components/Gallery';
+import React, { lazy, Suspense } from 'react';
+
+
+const Galeria = lazy(() => import('./components/Gallery'));
 
 function App() {
 
   return (
     <>
-      <Gallery />
+      <Suspense fallback={<div>Cargando...</div>}>
+        <Galeria />
+      </Suspense>
     </>
   )
 }
